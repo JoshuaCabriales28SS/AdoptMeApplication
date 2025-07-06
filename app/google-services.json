@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193994726102",
+    "project_id": "adoptmeapplication-c1d98",
+    "storage_bucket": "adoptmeapplication-c1d98.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193994726102:android:7cba86c8123c7728b14777",
+        "android_client_info": {
+          "package_name": "com.personal.adoptmeapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcptVa-rNEDNU9evJ4zla2j4P-hdmzg5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

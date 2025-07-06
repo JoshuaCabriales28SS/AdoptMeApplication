@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,7 +44,7 @@ class LoginActivity : ComponentActivity() {
 
 // UTILIDADES
 @Composable
-fun Textos(contenido: String, modifier: Modifier = Modifier) {
+fun Textos(contenido: String) {
     Text(
         text = contenido,
         fontSize = 32.sp
@@ -122,11 +123,16 @@ fun FormScreen(modifier: Modifier = Modifier) {
 
     // CONTENIDO
     Column(
-        modifier = modifier
-            .padding(32.dp),
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Row {
+        Row(
+            modifier = modifier
+                .wrapContentSize()
+                .background(color = Color.LightGray)
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
             Textos("Tipo de animal: ")
             OutlinedTextField(
                 value = texto,
@@ -134,11 +140,33 @@ fun FormScreen(modifier: Modifier = Modifier) {
                 label = { Text("Tipo") }
             )
         }
-        Row {
+        Row(
+            modifier = modifier
+                .wrapContentSize()
+                .background(color = Color.LightGray)
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
             Textos("Raza de animal: ")
+            OutlinedTextField(
+                value = texto,
+                onValueChange = { texto = it },
+                label = { Text("Tipo") }
+            )
         }
-        Row {
+        Row(
+            modifier = modifier
+                .wrapContentSize()
+                .background(color = Color.LightGray)
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
             Textos("Color de pelaje: ")
+            OutlinedTextField(
+                value = texto,
+                onValueChange = { texto = it },
+                label = { Text("Tipo") }
+            )
         }
     }
 }
