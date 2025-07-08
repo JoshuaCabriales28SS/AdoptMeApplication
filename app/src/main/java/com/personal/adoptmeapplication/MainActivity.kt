@@ -17,6 +17,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,7 +37,7 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AdoptMeApplicationTheme {
-
+                StarterScreen()
             }
         }
     }
@@ -55,7 +56,7 @@ fun Header(titulo: String, modifier : Modifier = Modifier) {
     Row(
         modifier = modifier
             .wrapContentSize(align = Alignment.TopCenter)
-            .background(color = MaterialTheme.colorScheme.primary)
+            .background(MaterialTheme.colorScheme.secondary)
             .padding(16.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
@@ -70,15 +71,19 @@ fun Header(titulo: String, modifier : Modifier = Modifier) {
 
 // PANTALLAS
 @Composable
+fun StarterScreen(modifier: Modifier = Modifier) {
+    // HEADER
+    Header("Bienvenido")
+}
+@Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
+    var texto by remember { mutableStateOf("") }
     // HEADER LOGIN
     Header("Login")
 
     // CONTENEDOR DE LOGIN
     Column(
         modifier = modifier
-            .wrapContentSize()
-            .size(450.dp, 250.dp)
             .border(
                 width = 4.dp,
                 color = MaterialTheme.colorScheme.primary,
@@ -94,6 +99,11 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 "Usuario:",
                 fontSize = 30.sp
             )
+            TextField(
+                value = texto,
+                onValueChange = { texto = it },
+                label = { Text("usuario") }
+            )
         }
         Row(
             modifier = modifier.padding(16.dp)
@@ -101,6 +111,11 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             Text(
                 "Contraseña:",
                 fontSize = 30.sp
+            )
+            TextField(
+                value = texto,
+                onValueChange = { texto = it },
+                label = { Text("usuario") }
             )
         }
         Button(
@@ -134,7 +149,7 @@ fun FormScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Start
         ) {
             Textos("Tipo de animal: ")
-            OutlinedTextField(
+            TextField(
                 value = texto,
                 onValueChange = { texto = it },
                 label = { Text("Tipo") }
@@ -148,10 +163,10 @@ fun FormScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Start
         ) {
             Textos("Raza de animal: ")
-            OutlinedTextField(
+            TextField(
                 value = texto,
                 onValueChange = { texto = it },
-                label = { Text("Tipo") }
+                label = { Text("Raza") }
             )
         }
         Row(
@@ -162,10 +177,10 @@ fun FormScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Start
         ) {
             Textos("Color de pelaje: ")
-            OutlinedTextField(
+            TextField(
                 value = texto,
                 onValueChange = { texto = it },
-                label = { Text("Tipo") }
+                label = { Text("Color") }
             )
         }
     }
@@ -176,6 +191,6 @@ fun FormScreen(modifier: Modifier = Modifier) {
 @Composable
 fun ScreenPreview() {
     AdoptMeApplicationTheme {
-        FormScreen()
+        StarterScreen()
     }
 }
